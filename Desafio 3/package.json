@@ -1,0 +1,29 @@
+{
+  "name": "desafio_3",
+  "version": "1.0.0",
+  "description": "Desafio_3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gres29/Node36535.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Git",
+    "Express"
+  ],
+  "author": "Amoretti Federico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gres29/Node36535/issues"
+  },
+  "homepage": "https://github.com/Gres29/Node36535#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "engines": {
+    "node": "16.13.2"
+  }
