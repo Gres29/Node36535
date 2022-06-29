@@ -1,0 +1,41 @@
+<div
+  class="container d-flex justify-content-center align-items-center bg-secondary vh-100"
+>
+  <div class="col-6">
+    <div class="card bg-dark bg-gradient text-white">
+      <div
+        class="card-header bg-dark text-center d-flex justify-content-between align-items-center"
+      >
+        <strong>Lista de productos</strong>
+        <a class="btn btn-primary" href="/ejs/" role="button">Nuevo producto</a>
+      </div>
+      <div class="card-body">
+        <% if (books.length > 0) { %>
+        <table class="table table-bordered text-white">
+          <thead>
+            <tr class="text-center">
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Foto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% books.forEach((book) => { %>
+            <tr class="text-center">
+              <td><%- book.name %></td>
+              <td><%- book.price %></td>
+              <td class="w-25 h-25">
+                <img class="img-thumbnail" src="<%= book.img %>" alt="<%=
+                book.name %>"
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <% } else { %>
+        <p>No hay productos</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
