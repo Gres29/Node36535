@@ -1,0 +1,118 @@
+[{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42cb"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42ca"
+  },
+  "name": "El Gato Negro1",
+  "price": 5000,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42cf"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42ce"
+  },
+  "name": "El Gato Negro3",
+  "price": 2000,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42d1"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42d0"
+  },
+  "name": "El Gato Negro4",
+  "price": 2500,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42d3"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42d2"
+  },
+  "name": "El Gato Negro5",
+  "price": 3000,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42d5"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42d4"
+  },
+  "name": "El Gato Negro6",
+  "price": 1000,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42d7"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42d6"
+  },
+  "name": "El Gato Negro7",
+  "price": 500,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "62c379f086f67be634ce42d9"
+  },
+  "id": {
+    "$oid": "62c379f086f67be634ce42d8"
+  },
+  "name": "El Gato Negro8",
+  "price": 1500,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "62c379f186f67be634ce42db"
+  },
+  "id": {
+    "$oid": "62c379f186f67be634ce42da"
+  },
+  "name": "El Gato Negro9",
+  "price": 250,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "62c379f286f67be634ce42dd"
+  },
+  "id": {
+    "$oid": "62c379f286f67be634ce42dc"
+  },
+  "name": "El Gato Negro10",
+  "price": 3500,
+  "img": "https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg",
+  "author": "Edgar Alan Poe",
+  "publication_year": 1843,
+  "stock": 0
+}]
