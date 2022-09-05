@@ -1,0 +1,38 @@
+<div class="col">
+  <div class="card border-primary mb-3">
+    <div class="card-header text-center"><strong>Formulario nuevo libro</strong></div>
+    <div class="card-body">
+      <form id="new-book-form">
+        <div class="mb-3">
+          <label for="book-author" class="form-label">Autor</label>
+          <input type="text" class="form-control" id="book-author" name="book-author"/>
+        </div>
+        <div class="mb-3">
+          <label for="book-name" class="form-label">Nombre del Libro</label>
+          <input type="text" class="form-control" id="book-name" name="book-name"/>
+        </div>
+        <div class="mb-3">
+          <label for="book-price" class="form-label">Precio</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="number" class="form-control"
+              id="book-price" name="book-price" min="0" step="0.01"/>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="book-img" class="form-label">URL Imagen</label>
+          <input type="text" class="form-control" id="book-img" name="book-img"/>
+        </div>
+        <div class="mb-3">
+          <label for="book-publication-year" class="form-label">Año de Publicacion</label>
+          <input type="number" class="form-control" id="book-publication-year" name="book-publication-year" min="0"/>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button class="btn btn-dark border border-light" type="submit">
+            <strong>Ingresar</strong>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio 8</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/darkly/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body class="bg-dark text-white">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col" id="new-book-form-container"></div>
+        <div class="col" id="books-table-container"></div>
+      </div>
+      <div class="row">
+        <div class="col-6" id="new-email-form-container"></div>
+        <div class="col-6" id="chat-container"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const getView = async () => {
+        const responseBooksTable = await fetch(
+          "handlebars/books/books.table.hbs"
+        );
+        const booksTable = await responseBooksTable.text();
+
+        const responseBook = await fetch("handlebars/books/book.hbs");
+        const book = await responseBook.text();
+
+        const responseBookForm = await fetch(
+          "handlebars/books/new.book.form.hbs"
+        );
+        const bookForm = await responseBookForm.text();
+
+        const responseMessage = await fetch("handlebars/chat/message.hbs");
+        const message = await responseMessage.text();
+
+        const responseChat = await fetch("handlebars/chat/chat.hbs");
+        const chat = await responseChat.text();
+
+        const responseEmailForm = await fetch(
+          "handlebars/chat/new.email.form.hbs"
+        );
+        const emailForm = await responseEmailForm.text();
+
+        const bookTemplate = Handlebars.compile(book);
+        const booksTableTemplate = Handlebars.compile(booksTable);
+        const bookFormTemplate = Handlebars.compile(bookForm);
+        const messageTemplate = Handlebars.compile(message);
+        const chatTemplate = Handlebars.compile(chat);
+        const emailFormTemplate = Handlebars.compile(emailForm);
+
+        Handlebars.registerPartial("bookForm", bookFormTemplate);
+        Handlebars.registerPartial("book", bookTemplate);
+        Handlebars.registerPartial("booksTable", booksTableTemplate);
+        Handlebars.registerPartial("emailForm", emailFormTemplate);
+        Handlebars.registerPartial("message", messageTemplate);
+        Handlebars.registerPartial("chat", chatTemplate);
+
+        $newBookFormContainer = document.getElementById(
+          "new-book-form-container"
+        );
+        $booksTableContainer = document.getElementById(
+          "books-table-container"
+        );
+        $newEmailFormContainer = document.getElementById(
+          "new-email-form-container"
+        );
+        $chatContainer = document.getElementById("chat-container");
+
+        $newBookFormContainer.innerHTML = bookFormTemplate();
+        $newEmailFormContainer.innerHTML = emailFormTemplate();
+
+        const socket = io();
+
+        const $newEmailForm = document.getElementById("new-email-form");
+        const $newEmailInput = document.getElementById("email-input");
+        const $email = document.getElementById("user-email-display");
+        const $newBookForm = document.getElementById("new-book-form");
+
+        socket.emit("get-chat");
+        socket.emit("get-books");
+
+        socket.on("chat", (allChat) => {
+          $chatContainer.innerHTML = chatTemplate({
+            messages: allChat,
+          });
+          const $chatMessages = document.getElementById("chat-messages");
+          const $newMessageForm = document.getElementById("new-message-form");
+          const $newMessageInput = document.getElementById("new-message-input");
+          $newMessageForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (!$email.textContent) {
+              alertError("Por favor, ingrese un email para continuar");
+            } else if (!$newMessageInput.value) {
+              alertError("Por favor, ingrese un mensaje para continuar");
+            } else {
+              //Despues de validar. Mandar mensaje.
+              const chatMessage = {
+                email: $email.textContent,
+                text: $newMessageInput.value,
+              };
+              socket.emit("chat-message", chatMessage);
+              $newMessageInput.value = "";
+            }
+          });
+          //Si el servidor emite un mensaje, lo muestro en la pantalla del chat.
+          socket.on("chat-message-ui", (chatMessage) => {
+            const { email, message, date } = chatMessage;
+
+            $chatMessages.insertAdjacentHTML(
+              "beforeend",
+              messageTemplate({
+                email,
+                date,
+                message,
+              })
+            );
+          });
+        });
+
+        socket.on("books", (books) => {
+          $booksTableContainer.innerHTML = booksTableTemplate({
+            books: books,
+          });
+          const $booksTableBody = document.getElementById("books-table-body");
+          socket.on("new-book-ui", (newBook) => {
+            const { name, price, img, author, publication_year } = newBook;
+
+            $booksTableBody.insertAdjacentHTML(
+              "beforeend",
+              bookTemplate({
+                name,
+                price,
+                img,
+                author,
+                publication_year,
+              })
+            );
+          });
+        });
+
+        $newEmailForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          if ($newEmailInput.value) {
+            $email.textContent = $newEmailInput.value;
+            $newEmailInput.value = "";
+            $newEmailInput.setAttribute("disabled", "true");
+          }
+        });
+
+        //Para saber si estoy en la pagina de productos/books.
+        if ($newBookForm) {
+          $newBookForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const form = new FormData(e.target);
+            const newBook = {
+              book: form.get("book-name"),
+              price: Number(form.get("book-price")),
+              img: form.get("book-img"),
+              artist: form.get("book-autohr"),
+              release_year: form.get("book-publication-year"),
+            };
+            socket.emit("new-book", newBook);
+            $newBookForm.reset();
+          });
+        }
+      };
+
+      getView();
+
+      const alertError = (error) => {
+        Toastify({
+          text: error,
+          duration: 3000,
+          newWindow: true,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "right", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          className: "bg-danger",
+          style: {
+            background: "unset",
+          },
+        }).showToast();
+      };
+    </script>
+  </body>
+</html>
