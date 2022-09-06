@@ -15,4 +15,4 @@ MONGO_ATLAS_CREDENTIALS="my_mongo_atlas_credentials"
 
 ### Deployado en Heroku
 
-https://amoretti-desafio17.herokuapp.com/
+https://amoretti-desafio17.herokuapp.com/info
