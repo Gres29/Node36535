@@ -1,0 +1,5 @@
+node_modules
+.env
+firestore-segunda-entrega-firebase.json
+todo.txt
+logs
