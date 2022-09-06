@@ -40,11 +40,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const getView = async () => {
-        const responseAlbumsTable = await fetch("libros/libros.table.hbs");
-        const librosTable = await responseAlbumsTable.text();
+        const responseLibrosTable = await fetch("libros/libros.table.hbs");
+        const librosTable = await responseLibrosTable.text();
 
-        const responseAlbum = await fetch("libros/libro.hbs");
-        const libro = await responseAlbum.text();
+        const responseLibro = await fetch("libros/libro.hbs");
+        const libro = await responseLibro.text();
 
         const responseMessage = await fetch("chat/message.hbs");
         const message = await responseMessage.text();
@@ -145,7 +145,7 @@
           });
         });
 
-        const getAlbums = async () => {
+        const getLibros = async () => {
           const response = await fetch(
             `http://localhost:8080/api/productos-test`
           );
@@ -155,7 +155,7 @@
           });
         };
 
-        getAlbums();
+        getLibros();
 
         const getUser = async () => {
           const response = await fetch("http://localhost:8080/login/user");

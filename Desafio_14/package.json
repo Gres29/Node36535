@@ -22,9 +22,9 @@
   "author": "Amoretti Federico",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/github.com/Gres29/Node36535/issues"
+    "url": "https://github.com/Gres29/Node36535/issues"
   },
-  "homepage": "https://github.com/github.com/Gres29/Node36535#readme",
+  "homepage": "https://github.com/Gres29/Node36535#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
