@@ -12,3 +12,7 @@ MONGODB_CONNECTION_STRING="my_mongodb_connection_string"
 MONGO_DATABASE="my_mongo_database"
 MONGO_ATLAS_CREDENTIALS="my_mongo_atlas_credentials"
 ```
+
+### Deployado en Heroku
+
+https://amoretti-desafio17.herokuapp.com/
