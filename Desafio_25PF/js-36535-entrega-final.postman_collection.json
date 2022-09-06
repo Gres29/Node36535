@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "bf62249a-8973-4d69-90e3-812302a785fb",
+		"name": "js-36535-entrega-final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17526370"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"sistema@ecommerce.com\",\r\n\t\"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/login",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sistema@ecommerce.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"avatar\": \"https://mastermindpromotion.com/wp-content/uploads/2015/02/facebook-default-no-profile-pic.jpg\",\r\n    \"name\": \"Administrador\",\r\n    \"age\": 32,\r\n    \"address\": \"myAddress\",\r\n    \"phone\": \"+542237968854\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/register",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/logout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/profile/{{EMAIL}}",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"{{EMAIL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Checkout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/checkout/62f9553615d9f6d40b7e3ddb",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"checkout",
+								"62f9553615d9f6d40b7e3ddb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cartProducts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/carrito/62f9553615d9f6d40b7e3ddb/productos",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"62f9553615d9f6d40b7e3ddb",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cartAddProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"62f955a515d9f6d40b7e3dde\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/carrito/62f9553615d9f6d40b7e3ddb/productos",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"62f9553615d9f6d40b7e3ddb",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cartProductIncreaseQuantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/carrito/62f9553615d9f6d40b7e3ddb/productos/62f955a515d9f6d40b7e3dde/incrementar",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"62f9553615d9f6d40b7e3ddb",
+								"productos",
+								"62f955a515d9f6d40b7e3dde",
+								"incrementar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cartProductDecreaseQuantity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/carrito/62f9553615d9f6d40b7e3ddb/productos/62f955a515d9f6d40b7e3dde/decrementar",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"62f9553615d9f6d40b7e3ddb",
+								"productos",
+								"62f955a515d9f6d40b7e3dde",
+								"decrementar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cartDeleteProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/carrito/62f9553615d9f6d40b7e3ddb/productos/62f955a515d9f6d40b7e3dde",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"carrito",
+								"62f9553615d9f6d40b7e3ddb",
+								"productos",
+								"62f955a515d9f6d40b7e3dde"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/productos",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/productos/62f55fa06c227dc34e2f796f",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"62f55fa06c227dc34e2f796f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/productos/categoria/novela",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"categoria",
+								"novela"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"El Gato Negro\",\r\n    \"description\": \"Novela de Edgar Alan Poe. Released in 1843.\",\r\n    \"price\": 750.00,\r\n    \"category\": \"NOVELA\",\r\n    \"img\": \"https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg\",\r\n    \"stock\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/productos",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"El Gato Negro\",\r\n    \"description\": \"Novela de Edgar Alan Poe. Released in 1843.\",\r\n    \"price\": 750.00,\r\n    \"category\": \"NOVELA\",\r\n    \"img\": \"https://octaedro.com/wp-content/uploads/2019/04/12435-1.jpg\",\r\n    \"stock\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/productos/62f55fa06c227dc34e2f796f",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"62f55fa06c227dc34e2f796f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/productos/62f55fa06c227dc34e2f796f",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"productos",
+								"62f55fa06c227dc34e2f796f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chats",
+			"item": [
+				{
+					"name": "allUserChats",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/chat/sistema@ecommerce.com",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								"sistema@ecommerce.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "newChat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subject\": \"No me funciona la tarjeta al realizar el checkout\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCAL_URL}}/api/chat/create",
+							"host": [
+								"{{LOCAL_URL}}"
+							],
+							"path": [
+								"api",
+								"chat",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "https://amoretti-proyectofinal.herokuapp.com",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "EMAIL",
+			"value": "sistema@ecommerce.com",
+			"type": "string"
+		},
+		{
+			"key": "PHONE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "LOCAL_URL",
+			"value": "https://amoretti-proyectofinal.herokuapp.com",
+			"type": "string"
+		},
+		{
+			"key": "JWT",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoic2lzdGVtYUBlY29tbWVyY2UuY29tIiwiaWF0IjoxNjYxODkxOTkzLCJleHAiOjE2NjE4OTU1OTN9.ucpJXduTnKiAYpz0JrgFR2yySJ76opNxl2vVbZm0Fro",
+			"type": "string"
+		}
+	]
+}
