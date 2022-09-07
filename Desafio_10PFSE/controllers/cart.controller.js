@@ -64,8 +64,8 @@ async function getAllProducts(request, response) {
 async function addManyProducts(request, response) {
   try {
     const id = request.params.id;
-    const newAlbums = request.body;
-    const cart = await cartsDao.addManyProducts(id, newAlbums);
+    const newBooks = request.body;
+    const cart = await cartsDao.addManyProducts(id, newBooks);
 
     if (!cart) {
       return response.status(404).json({
@@ -75,8 +75,8 @@ async function addManyProducts(request, response) {
 
     let message = "";
 
-    if (newAlbums.length > 1) {
-      message = `${newAlbums.length} productos agregados al carrito ${id} con éxito`;
+    if (newBooks.length > 1) {
+      message = `${newBooks.length} productos agregados al carrito ${id} con éxito`;
     } else {
       message = `Producto agregado al carrito ${id} con éxito`;
     }
