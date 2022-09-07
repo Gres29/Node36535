@@ -1,0 +1,28 @@
+{
+  "name": "Desafio 21",
+  "version": "1.0.0",
+  "description": "Testeamos nuestra API REST",
+  "main": "server.js",
+  "scripts": {
+    "install-api": "cd api && npm install",
+    "install-client": "cd client && npm install",
+    "install-fullstack": "npm run install-client && npm run install-api",
+    "start-api": "cd api && npm start",
+    "start-client": "cd client && npm start",
+    "start-fullstack": "npm run start-api & npm run start-client",
+    "start-dev-api": "cd api && npm run dev",
+    "start-dev-client": "cd client && npm run dev",
+    "start-dev-fullstack": "npm run start-dev-api & npm run start-dev-client",
+    "test-api": "cd api && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gres29/Node36535.git"
+  },
+  "author": "Amoretti Federico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gres29/Node36535/issues"
+  },
+  "homepage": "https://github.com/Gres29/Node36535#readme"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Desafio 21",
+  "version": "1.0.0",
+  "description": "Testeamos nuestra API REST",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gres29/Node36535.git"
+  },
+  "keywords": [
+    "NodeJS"
+  ],
+  "author": "Amoretti Federico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gres29/Node36535/issues"
+  },
+  "homepage": "https://github.com/Gres29/Node36535#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

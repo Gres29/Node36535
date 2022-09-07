@@ -1,0 +1,37 @@
+{
+  "name": "Desafio 21",
+  "version": "1.0.0",
+  "description": "Testeamos nuestra API REST",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha src/tests -r dotenv/config",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gres29/Node36535.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "MongoDB"
+  ],
+  "author": "Amoretti Federico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gres29/Node36535/issues"
+  },
+  "homepage": "https://github.com/Gres29/Node36535#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.4"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.4"
+  }
+}
