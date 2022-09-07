@@ -6,8 +6,8 @@ const { Container } = require(`./Classes/Container`);
 const container = new Container(`./products.txt`, fs);
 
 const getAllAlbums = async (req, res) => {
-  const albums = await container.getAll();
-  res.status(200).json(albums);
+  const books = await container.getAll();
+  res.status(200).json(books);
 };
 
 const getRandomAlbum = async (req, res) => {
