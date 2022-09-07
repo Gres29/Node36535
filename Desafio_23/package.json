@@ -1,0 +1,28 @@
+{
+  "name": "Desafio 23",
+  "version": "1.0.0",
+  "description": "Reformar para usar otro framework: Fastify",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gres29/Node36535.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "graphql"
+  ],
+  "author": "Amoretti Federico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gres29/Node36535/issues"
+  },
+  "homepage": "https://github.com/Gres29/Node36535#readme",
+  "dependencies": {
+    "fastify": "^4.5.2"
+  }
+}
