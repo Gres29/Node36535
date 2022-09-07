@@ -6,21 +6,21 @@ class Container {
 
   async getById(id) {
     try {
-      const parsedAlbums = await this.getAll();
-      const isPresent = parsedAlbums.find((album) => album.id === id);
+      const parsedBooks = await this.getAll();
+      const isPresent = parsedBooks.find((book) => book.id === id);
       return isPresent ? isPresent : null;
     } catch (error) {
-      console.log(`Hubo un error al obtener un álbum por su id: ${error}`);
+      console.log(`Hubo un error al obtener un libro por su id: ${error}`);
     }
   }
 
   async getAll() {
     try {
-      const albums = await this.fs.readFile(this.file, `utf-8`);
-      const parsedAlbums = JSON.parse(albums);
-      return parsedAlbums;
+      const books = await this.fs.readFile(this.file, `utf-8`);
+      const parsedBooks = JSON.parse(books);
+      return parsedBooks;
     } catch (error) {
-      console.log(`Hubo un error al obtener todos los álbumes: ${error}`);
+      console.log(`Hubo un error al obtener todos los libros: ${error}`);
     }
   }
 }
