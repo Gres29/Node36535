@@ -18,7 +18,7 @@ const {
   handleChatMessage,
   handleAllChat,
 } = require(`${__dirname}/handlers/chat.handler`);
-const albumsRouter = require(`${__dirname}/routes/albums.route`);
+const booksRouter = require(`${__dirname}/routes/books.route`);
 const loginRouter = require(`${__dirname}/routes/login.route`);
 const homeRouter = require(`${__dirname}/routes/home.route`);
 const logoutRouter = require(`${__dirname}/routes/logout.route`);
@@ -55,7 +55,7 @@ app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 app.use("/home", homeRouter);
 app.use("/logout", logoutRouter);
-app.use("/api/productos-test", albumsRouter);
+app.use("/api/productos-test", booksRouter);
 app.use("/api/randoms", randomNumbersRouter);
 
 io.on("connection", (socket) => {
