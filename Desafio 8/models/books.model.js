@@ -12,7 +12,7 @@ async function getAllDB() {
     const books = await mariaDB.select().table("books");
     return books;
   } else {
-    createAlbumsTable(mariaDB, "books");
+    createBooksTable(mariaDB, "books");
   }
 }
 
@@ -21,7 +21,7 @@ async function addDB(book) {
   if (tableExists) {
     await mariaDB("books").insert(book);
   } else {
-    createAlbumsTable(mariaDB, "books");
+    createBooksTable(mariaDB, "books");
   }
 }
 
